@@ -1,0 +1,30 @@
+START
+  INPUT number_of_students
+  CREATE empty list called student_records
+
+  FOR i FROM 1 TO number_of_students DO
+    INPUT score
+
+    IF score >= 70 AND score <= 100 THEN
+        grade = "A"
+    ELSE IF score >= 60 AND score <= 69 THEN
+        grade = "B"
+    ELSE IF score >= 50 AND score <= 59 THEN
+        grade = "C"
+    ELSE IF score >= 45 AND score <= 49 THEN
+        grade = "D"
+    ELSE IF score >= 40 AND score <= 44 THEN
+        grade = "E"
+    ELSE IF score >= 0 AND score <= 39 THEN
+        grade = "F"
+    ELSE
+        grade = "Invalid score"
+
+    ADD (i, score, grade) TO student_records
+  END FOR
+
+  OUTPUT "Summary Report"
+  FOR EACH record IN student_records DO
+    OUTPUT "Student", record number, "Score:", score, "Grade:", grade
+  END FOR
+END
